@@ -8,6 +8,7 @@ import 'package:utopia_utils/utopia_utils.dart';
 import 'package:walczak/app/app_injector.dart';
 import 'package:walczak/app/app_reporter.dart';
 import 'package:walczak/app/app_routing.dart';
+import 'package:walczak/provider/setup/setup_state_provider.dart';
 
 final injector = Injector.appInstance;
 
@@ -26,6 +27,7 @@ class App extends HookWidget {
       providers: [
         Provider<ScopedNavigatorState>.value(value: ScopedNavigatorState(navigatorKey: navigatorKey)),
         InjectorProvider(setupInjector: () => AppInjector.setup()),
+        const SetupStateProvider(),
       ],
       child: MaterialApp(
         theme: ThemeData(

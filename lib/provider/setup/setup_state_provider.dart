@@ -16,7 +16,7 @@ class SetupStateProvider extends HookStateProviderWidget<SetupState> {
 
     useSimpleEffect(() async {
       await Future.wait([
-        Future.delayed(const Duration(seconds: 1)),
+        Future.delayed(const Duration(milliseconds: 1500)),
       ]);
       isInitializedValue.value = true;
     }, []);

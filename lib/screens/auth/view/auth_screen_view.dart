@@ -15,7 +15,7 @@ class AuthScreenView extends StatelessWidget {
         child: Stack(
           children: [
             Center(
-              //TODO change Container to logo
+              //TODO change Container to captcha
               child: Container(
                 width: 100,
                 height: 100,
