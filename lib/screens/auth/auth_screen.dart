@@ -12,7 +12,7 @@ class AuthScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final navigator = useScopedNavigator();
-    // final state = useAuthScreenState(navigateToHome: () => navigator.pushReplacementNamed(HomeScreen.route));
+    // final state = useAuthScreenState(navigateToIntro: () => navigator.pushReplacementNamed(IntroScreen.route));
 
     return const AuthScreenView();
   }

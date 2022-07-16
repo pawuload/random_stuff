@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:walczak/common/constans/app_color.dart';
+import 'package:walczak/common/widgets/app_background.dart';
 import 'package:walczak/common/widgets/app_footer.dart';
 
 class AuthScreenView extends StatelessWidget {
@@ -11,7 +11,7 @@ class AuthScreenView extends StatelessWidget {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        color: AppColors.background,
+        decoration: appBackground(),
         child: Stack(
           children: [
             Center(
