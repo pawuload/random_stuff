@@ -12,7 +12,6 @@ class IntroScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        //TODO add video from assets
         width: double.infinity,
         height: double.infinity,
         decoration: appBackground(),

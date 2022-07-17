@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:walczak/common/widgets/app_background.dart';
 import 'package:walczak/screens/main/state/main_screen_state.dart';
+import 'package:walczak/screens/main/widget/main_screen_video_player.dart';
 
 class MainScreenView extends StatelessWidget {
   final MainScreenState state;
@@ -15,7 +16,11 @@ class MainScreenView extends StatelessWidget {
         width: double.infinity,
         height: double.infinity,
         decoration: appBackground(),
-        child: Center(child: Text('ej ty nicponiu')),
+        child: state.isVideoSelected
+            ? MainScreenVideoPlayer(state: state)
+            : const Center(
+                child: Text('ej ty nicponiu'),
+              ),
       ),
     );
   }
