@@ -13,9 +13,9 @@ class VideoState {
     required this.refresh,
   });
 
-  List<Video>? get board => getVideos();
+  List<Video>? get videos => getVideos();
 
-  bool get isInitialized => board != null;
+  bool get isInitialized => videos != null;
 }
 
 class VideoStateProvider extends HookStateProviderWidget<VideoState> {

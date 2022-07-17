@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:walczak/common/widgets/app_background.dart';
+import 'package:walczak/models/video.dart';
 import 'package:walczak/screens/main/state/main_screen_state.dart';
 import 'package:walczak/screens/main/widget/main_screen_video_player.dart';
 
@@ -18,10 +19,25 @@ class MainScreenView extends StatelessWidget {
         decoration: appBackground(),
         child: state.isVideoSelected
             ? MainScreenVideoPlayer(state: state)
-            : const Center(
-                child: Text('ej ty nicponiu'),
+            : Column(
+                children: [for (final video in state.videos) _buildVideo(video)],
               ),
       ),
+    );
+  }
+
+  Widget _buildVideo(Video video) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: GestureDetector(
+          onTap: () => state.onVideoPressed(video),
+          child: Column(
+            children: [
+              Text(video.videoUrl),
+              Text(video.thumbnail),
+              Text(video.index.toString()),
+            ],
+          )),
     );
   }
 }

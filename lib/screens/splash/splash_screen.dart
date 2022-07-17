@@ -3,6 +3,7 @@ import 'package:utopia_arch/utopia_arch.dart';
 import 'package:utopia_hooks/utopia_hooks.dart';
 import 'package:walczak/common/widgets/app_background.dart';
 import 'package:walczak/common/widgets/app_footer.dart';
+import 'package:walczak/provider/video/video_state_provider.dart';
 import 'package:walczak/screens/auth/auth_screen.dart';
 import 'package:walczak/util/hooks/setup_state_hooks.dart';
 
@@ -15,10 +16,13 @@ class SplashScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final navigator = useScopedNavigator();
+    final videoState = useProvided<VideoState>();
 
     useAsyncEffectAfterSetup(() async {
-      navigator.pushReplacementNamed(AuthScreen.route);
-    }, []);
+      if (videoState.isInitialized) {
+        navigator.pushReplacementNamed(AuthScreen.route);
+      } else return;
+    }, [videoState.isInitialized]);
 
     return Scaffold(
       body: Container(

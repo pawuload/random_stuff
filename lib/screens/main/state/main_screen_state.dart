@@ -1,8 +1,10 @@
 import 'package:utopia_hooks/utopia_hooks.dart';
 import 'package:video_player/video_player.dart';
 import 'package:walczak/models/video.dart';
+import 'package:walczak/provider/video/video_state_provider.dart';
 
 class MainScreenState {
+  final List<Video> videos;
   final Video? videoSelected;
   final bool isVideoSelected;
   final VideoPlayerController controller;
@@ -13,17 +15,18 @@ class MainScreenState {
     required this.isVideoSelected,
     required this.controller,
     required this.onVideoPressed,
+    required this.videos,
   });
 }
 
 MainScreenState useMainScreenState() {
   final videoSelectedState = useState<Video?>(null);
   final isVideoFinishedState = useState<bool>(false);
-
-  final videoList = []; //TODO from firebase
+  final videoState = useProvided<VideoState>();
+  final videoList = videoState.videos; //TODO from firebase
 
   final controller = useMemoized(
-    () => VideoPlayerController.network('url')
+    () => VideoPlayerController.network(videoSelectedState.value?.videoUrl ?? '')
       ..initialize()
       ..play(),
     [videoSelectedState.value],
@@ -43,7 +46,9 @@ MainScreenState useMainScreenState() {
 
   useSimpleEffect(() {
     if (isVideoFinishedState.value == true) {
-      videoSelectedState.value = videoList[videoSelectedState.value!.index + 1];
+      final index = videoSelectedState.value!.index + 1;
+      videoSelectedState.value = videoList![index > videoList.length - 1 ? 0 : index];
+      controller.play();
     }
   }, [isVideoFinishedState.value]);
 
@@ -52,5 +57,6 @@ MainScreenState useMainScreenState() {
     isVideoSelected: videoSelectedState.value != null,
     controller: controller,
     onVideoPressed: (video) => videoSelectedState.value = video,
+    videos: videoList!,
   );
 }
