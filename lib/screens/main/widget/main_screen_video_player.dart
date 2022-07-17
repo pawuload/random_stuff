@@ -13,7 +13,9 @@ class MainScreenVideoPlayer extends StatelessWidget {
   Widget build(BuildContext context) {
     return CameraScreenCoverFullscreenWrapper(
       aspectRatio: state.controller.value.aspectRatio,
-      child: VideoPlayer(state.controller),
+      child: state.isInitialized
+          ? VideoPlayer(state.controller)
+          : Image.network(state.videoSelected!.thumbnail, fit: BoxFit.cover,),
     );
   }
 }
