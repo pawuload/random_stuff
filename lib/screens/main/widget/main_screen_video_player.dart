@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -11,11 +12,14 @@ class MainScreenVideoPlayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CameraScreenCoverFullscreenWrapper(
-      aspectRatio: state.controller.value.aspectRatio,
-      child: state.isInitialized
-          ? VideoPlayer(state.controller)
-          : Image.network(state.videoSelected!.thumbnail, fit: BoxFit.cover,),
+    return state.controller != null ? CameraScreenCoverFullscreenWrapper(
+      aspectRatio: state.controller!.value.aspectRatio,
+      child:  VideoPlayer(state.controller!)
+    ) : Positioned.fill(
+      child: CachedNetworkImage(
+        imageUrl: state.videoSelected!.thumbnail,
+        fit: BoxFit.fitHeight,
+      ),
     );
   }
 }
