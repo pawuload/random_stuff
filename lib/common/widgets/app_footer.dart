@@ -6,6 +6,8 @@ class AppFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const poweredBy = 'powered by ';
+    const utopia = 'utopia.';
     return Align(
       alignment: Alignment.bottomCenter,
       child: Padding(
@@ -14,7 +16,7 @@ class AppFooter extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'powered by ',
+              poweredBy,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 12,
@@ -22,7 +24,7 @@ class AppFooter extends StatelessWidget {
               ),
             ),
             Text(
-              'utopia.',
+              utopia,
               style: GoogleFonts.ubuntu(
                 color: Colors.white,
                 fontSize: 12,

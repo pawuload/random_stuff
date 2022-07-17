@@ -1,4 +1,3 @@
-
 import 'package:injector/injector.dart';
 
 class AppInjector {
@@ -6,8 +5,6 @@ class AppInjector {
 
   static Injector setup() {
     final injector = Injector();
-
-
 
     return injector;
   }
