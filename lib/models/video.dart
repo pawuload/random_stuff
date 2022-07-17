@@ -8,6 +8,7 @@ class Video with _$Video {
   factory Video({
     required String thumbnail,
     required String videoUrl,
+    required int index,
   }) = _Video;
 
   factory Video.fromJson(Map<String, dynamic> json) => _$VideoFromJson(json);

@@ -15,12 +15,8 @@ class MainScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final navigator = useScopedNavigator();
-    final state = useMainScreenState(
-      navigateToMain: () => navigator.pushReplacementNamed(MainScreen.route),
-    );
-    return MainScreenView(
-      state: state,
-    );
+    final state = useMainScreenState();
+
+    return MainScreenView(state: state);
   }
 }
