@@ -2,7 +2,7 @@
     package="com.example.walczak">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="walczak"
+        android:label="WALCZAX"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

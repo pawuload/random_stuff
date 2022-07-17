@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:walczak/common/widgets/app_background.dart';
 import 'package:walczak/models/video.dart';
 import 'package:walczak/screens/main/state/main_screen_state.dart';
 import 'package:walczak/screens/main/widget/main_screen_video_card.dart';
@@ -16,7 +15,7 @@ class MainScreenView extends StatelessWidget {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: state.isVideoSelected ? const BoxDecoration(color: Colors.black) : appBackground(),
+        color: Colors.black.withOpacity(0.95),
         child: state.isVideoSelected
             ? MainScreenVideoPlayer(state: state)
             : GridView(
@@ -32,14 +31,11 @@ class MainScreenView extends StatelessWidget {
   }
 
   Widget _buildVideo(Video video) {
-    return Padding(
-      padding: const EdgeInsets.all(4),
-      child: GestureDetector(
-        onTap: () => state.onVideoPressed(video),
-        child: MainScreenVideoCard(
-          state: state,
-          video: video,
-        ),
+    return GestureDetector(
+      onTap: () => state.onVideoPressed(video),
+      child: MainScreenVideoCard(
+        state: state,
+        video: video,
       ),
     );
   }
