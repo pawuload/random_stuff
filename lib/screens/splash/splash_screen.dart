@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:utopia_arch/utopia_arch.dart';
 import 'package:utopia_hooks/utopia_hooks.dart';
+import 'package:walczak/common/constans/app_images.dart';
 import 'package:walczak/common/widgets/app_background.dart';
 import 'package:walczak/common/widgets/app_footer.dart';
 import 'package:walczak/provider/video/video_state_provider.dart';
@@ -21,7 +22,9 @@ class SplashScreen extends HookWidget {
     useAsyncEffectAfterSetup(() async {
       if (videoState.isInitialized) {
         navigator.pushReplacementNamed(AuthScreen.route);
-      } else return;
+      } else {
+        return;
+      }
     }, [videoState.isInitialized]);
 
     return Scaffold(
@@ -32,12 +35,9 @@ class SplashScreen extends HookWidget {
         child: Stack(
           children: [
             Center(
-              //TODO change Container to logo
-              child: Container(
-                width: 100,
-                height: 100,
-                color: Colors.white,
-                child: const Center(child: Text('LOGO')),
+              child: Image.asset(
+                AppImages.logo,
+                width: 66,
               ),
             ),
             const AppFooter(),

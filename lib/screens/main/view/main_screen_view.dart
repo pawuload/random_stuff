@@ -14,10 +14,9 @@ class MainScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: const EdgeInsets.all(8),
         width: double.infinity,
         height: double.infinity,
-        decoration: appBackground(),
+        decoration: state.isVideoSelected ? const BoxDecoration(color: Colors.black) : appBackground(),
         child: state.isVideoSelected
             ? MainScreenVideoPlayer(state: state)
             : GridView(
@@ -34,7 +33,7 @@ class MainScreenView extends StatelessWidget {
 
   Widget _buildVideo(Video video) {
     return Padding(
-      padding: const EdgeInsets.all(3),
+      padding: const EdgeInsets.all(4),
       child: GestureDetector(
         onTap: () => state.onVideoPressed(video),
         child: MainScreenVideoCard(

@@ -10,6 +10,7 @@ class MainScreenState {
   final bool isVideoSelected;
   final VideoPlayerController? controller;
   final Function(Video) onVideoPressed;
+  final Function() onBackPressed;
 
   const MainScreenState({
     required this.videoSelected,
@@ -17,6 +18,7 @@ class MainScreenState {
     required this.controller,
     required this.onVideoPressed,
     required this.videos,
+    required this.onBackPressed,
   });
 }
 
@@ -34,7 +36,7 @@ MainScreenState useMainScreenState() {
   );
 
   useEffect(() {
-  if (controller != null)  {
+    if (controller != null) {
       checkIsFinished() {
         isVideoFinishedState.value =
             controller.value.isInitialized && controller.value.position == controller.value.duration;
@@ -65,5 +67,6 @@ MainScreenState useMainScreenState() {
     controller: controller,
     onVideoPressed: (video) => videoSelectedState.value = video,
     videos: videoList!,
+    onBackPressed: () => videoSelectedState.value = null,
   );
 }

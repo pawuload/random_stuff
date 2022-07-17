@@ -12,13 +12,38 @@ class MainScreenVideoPlayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return state.controller != null ? CameraScreenCoverFullscreenWrapper(
-      aspectRatio: state.controller!.value.aspectRatio,
-      child:  VideoPlayer(state.controller!)
-    ) : Positioned.fill(
-      child: CachedNetworkImage(
-        imageUrl: state.videoSelected!.thumbnail,
-        fit: BoxFit.fitHeight,
+    return Stack(
+      children: [
+        state.controller != null
+            ? CameraScreenCoverFullscreenWrapper(
+                aspectRatio: state.controller!.value.aspectRatio,
+                child: VideoPlayer(state.controller!),
+              )
+            : Positioned.fill(
+                child: CachedNetworkImage(
+                  imageUrl: state.videoSelected!.thumbnail,
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
+        _buildButton()
+      ],
+    );
+  }
+
+  Widget _buildButton() {
+    return SafeArea(
+      child: GestureDetector(
+        onTap: state.onBackPressed,
+        child: const Padding(
+          padding: EdgeInsets.symmetric(
+            vertical: 8,
+            horizontal: 16,
+          ),
+          child: Icon(
+            Icons.close,
+            color: Colors.white,
+          ),
+        ),
       ),
     );
   }
