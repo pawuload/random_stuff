@@ -19,8 +19,7 @@ IntroScreenState useIntroScreenState({required Function() navigateToMain}) {
 
   useEffect(() {
     checkIsFinished() {
-      isVideoFinishedState.value =
-          controller.value.isInitialized && controller.value.position == controller.value.duration;
+      isVideoFinishedState.value = controller.value.isInitialized && controller.value.position == controller.value.duration;
     }
 
     controller.addListener(() => checkIsFinished());

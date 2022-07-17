@@ -40,17 +40,19 @@ const $Video = _$VideoTearOff();
 /// @nodoc
 mixin _$Video {
   String get thumbnail => throw _privateConstructorUsedError;
+
   String get videoUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $VideoCopyWith<Video> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $VideoCopyWith<$Res> {
-  factory $VideoCopyWith(Video value, $Res Function(Video) then) =
-      _$VideoCopyWithImpl<$Res>;
+  factory $VideoCopyWith(Video value, $Res Function(Video) then) = _$VideoCopyWithImpl<$Res>;
+
   $Res call({String thumbnail, String videoUrl});
 }
 
@@ -59,6 +61,7 @@ class _$VideoCopyWithImpl<$Res> implements $VideoCopyWith<$Res> {
   _$VideoCopyWithImpl(this._value, this._then);
 
   final Video _value;
+
   // ignore: unused_field
   final $Res Function(Video) _then;
 
@@ -82,17 +85,15 @@ class _$VideoCopyWithImpl<$Res> implements $VideoCopyWith<$Res> {
 
 /// @nodoc
 abstract class _$VideoCopyWith<$Res> implements $VideoCopyWith<$Res> {
-  factory _$VideoCopyWith(_Video value, $Res Function(_Video) then) =
-      __$VideoCopyWithImpl<$Res>;
+  factory _$VideoCopyWith(_Video value, $Res Function(_Video) then) = __$VideoCopyWithImpl<$Res>;
+
   @override
   $Res call({String thumbnail, String videoUrl});
 }
 
 /// @nodoc
-class __$VideoCopyWithImpl<$Res> extends _$VideoCopyWithImpl<$Res>
-    implements _$VideoCopyWith<$Res> {
-  __$VideoCopyWithImpl(_Video _value, $Res Function(_Video) _then)
-      : super(_value, (v) => _then(v as _Video));
+class __$VideoCopyWithImpl<$Res> extends _$VideoCopyWithImpl<$Res> implements _$VideoCopyWith<$Res> {
+  __$VideoCopyWithImpl(_Video _value, $Res Function(_Video) _then) : super(_value, (v) => _then(v as _Video));
 
   @override
   _Video get _value => super._value as _Video;
@@ -120,8 +121,7 @@ class __$VideoCopyWithImpl<$Res> extends _$VideoCopyWithImpl<$Res>
 class _$_Video implements _Video {
   _$_Video({required this.thumbnail, required this.videoUrl});
 
-  factory _$_Video.fromJson(Map<String, dynamic> json) =>
-      _$$_VideoFromJson(json);
+  factory _$_Video.fromJson(Map<String, dynamic> json) => _$$_VideoFromJson(json);
 
   @override
   final String thumbnail;
@@ -143,15 +143,12 @@ class _$_Video implements _Video {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(thumbnail),
-      const DeepCollectionEquality().hash(videoUrl));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(thumbnail), const DeepCollectionEquality().hash(videoUrl));
 
   @JsonKey(ignore: true)
   @override
-  _$VideoCopyWith<_Video> get copyWith =>
-      __$VideoCopyWithImpl<_Video>(this, _$identity);
+  _$VideoCopyWith<_Video> get copyWith => __$VideoCopyWithImpl<_Video>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -160,15 +157,16 @@ class _$_Video implements _Video {
 }
 
 abstract class _Video implements Video {
-  factory _Video({required String thumbnail, required String videoUrl}) =
-      _$_Video;
+  factory _Video({required String thumbnail, required String videoUrl}) = _$_Video;
 
   factory _Video.fromJson(Map<String, dynamic> json) = _$_Video.fromJson;
 
   @override
   String get thumbnail;
+
   @override
   String get videoUrl;
+
   @override
   @JsonKey(ignore: true)
   _$VideoCopyWith<_Video> get copyWith => throw _privateConstructorUsedError;

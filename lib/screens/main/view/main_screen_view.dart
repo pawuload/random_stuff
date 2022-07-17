@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:walczak/common/widgets/app_background.dart';
-import 'package:walczak/screens/intro/state/intro_screen_state.dart';
-import 'package:walczak/screens/intro/widget/intro_screen_video_player.dart';
+import 'package:walczak/screens/main/state/main_screen_state.dart';
 
-class IntroScreenView extends StatelessWidget {
-  final IntroScreenState state;
+class MainScreenView extends StatelessWidget {
+  final MainScreenState state;
 
-  const IntroScreenView({Key? key, required this.state}) : super(key: key);
+  const MainScreenView({Key? key, required this.state}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +15,7 @@ class IntroScreenView extends StatelessWidget {
         width: double.infinity,
         height: double.infinity,
         decoration: appBackground(),
-        child: IntroScreenVideoPlayer(state: state),
+        child: Center(child: Text('ej ty nicponiu')),
       ),
     );
   }
