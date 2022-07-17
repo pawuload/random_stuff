@@ -15,7 +15,7 @@ class MainScreenVideoPlayer extends StatelessWidget {
       aspectRatio: state.controller.value.aspectRatio,
       child: state.isInitialized
           ? VideoPlayer(state.controller)
-          : Image.network(state.videoSelected!.thumbnail, fit: BoxFit.cover,),
+          : Image.network(state.videoSelected!.thumbnail, fit: BoxFit.fill,),
     );
   }
 }
