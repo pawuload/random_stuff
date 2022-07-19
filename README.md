@@ -1,4 +1,4 @@
-# walczak
+# App
 
 A new Flutter project.
 
